@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# 🚀 Portfolio-4awmy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Omar Hossam's interactive portfolio. This project features a modern React UI and a retro Terminal TUI mode.
 
-Currently, two official plugins are available:
+## 🎓 For CS Freshmen
+If you're new to coding, check out [PROJECT_GUIDE.md](./PROJECT_GUIDE.md) for a simple explanation of how this all works!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Local Development
 
-## React Compiler
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/4awmy/portfolio-4awmy.git
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🌍 Deployment (GitHub Pages)
 
-## Expanding the ESLint configuration
+### **How to Update Your Site**
+If you've made changes and want to see them live on your website, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Commit your changes:**
+   ```bash
+   git add .
+   git commit -m "Describe your update"
+   git push origin main
+   ```
+2. **Run the deployment command:**
+   ```bash
+   npm run deploy
+   ```
+   *This command will automatically:*
+   - `predeploy`: Build your project (creating the `dist/` folder).
+   - `deploy`: Push only the built files to the `gh-pages` branch.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### **Important Note for GitHub Settings**
+- Go to your repository on GitHub.
+- Navigate to **Settings > Pages**.
+- Ensure **Build and deployment > Branch** is set to `gh-pages` and the folder is `/ (root)`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🏗️ Built With
+- **React 19** - UI Framework
+- **TypeScript** - Type Safety
+- **Vite** - Build Tool
+- **Tailwind CSS 4** - Styling
+- **Framer Motion** - Animations
+- **Lucide React** - Icons
