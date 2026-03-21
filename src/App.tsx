@@ -92,7 +92,7 @@ export default function App() {
       {/* Nav */}
       <nav className={`sticky top-0 z-50 px-6 py-4 flex justify-between items-center max-w-6xl mx-auto backdrop-blur-sm border-b transition-colors ${dark ? 'border-slate-800 bg-slate-950/80' : 'border-slate-200 bg-slate-50/80'}`}>
         <button onClick={() => scrollTo('hero')} className="text-xl font-bold flex items-center gap-2 hover:opacity-70 transition-opacity">
-          <Code className="w-5 h-5 text-blue-500" /> Omar Hossam
+          <img src="/file.svg" alt="Logo" className="w-8 h-8 rounded-lg" /> Omar Hossam
         </button>
         <div className="flex items-center gap-4">
           <div className={`hidden sm:flex gap-5 text-sm font-medium ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
@@ -155,8 +155,8 @@ export default function App() {
               <p className={`leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>I'm trilingual (Arabic, English, French) and currently <strong className="text-blue-500">open to internships</strong> and freelance opportunities. Let's build something great together.</p>
             </div>
             <div className="flex justify-center">
-              <div className="w-52 h-52 rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-xl">
-                <span className="text-8xl select-none">👨‍💻</span>
+              <div className="w-52 h-52 rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-xl overflow-hidden">
+                <img src="/file.svg" alt="Omar Hossam" className="w-full h-full object-cover" />
               </div>
             </div>
           </motion.div>
