@@ -5,7 +5,7 @@ import TerminalTUI from './TerminalTUI';
 import ParticleBackground from './ParticleBackground';
 
 interface Project { name: string; description: string; url: string; tech: string[]; highlight?: boolean; }
-interface Skill   { name: string; level: number; color: string; }
+interface Skill { name: string; level: number; color: string; }
 interface Experience { role: string; company: string; period: string; description: string; tags: string[]; }
 
 const projects: Project[] = [
@@ -22,12 +22,7 @@ const projects: Project[] = [
     url: 'https://github.com/4awmy/Ben10-Ultimate-Alien-Multiverse',
     tech: ['Unity', 'C#'],
   },
-  {
-    name: 'Budget Manager App',
-    description: 'Kotlin Android app for personal budgeting and expense tracking.',
-    url: 'https://github.com/4awmy/BudgetManagerApp',
-    tech: ['Kotlin', 'Android'],
-  },
+
   {
     name: 'ML Project',
     description: 'AI job market risk analyzer using decision trees and neural networks.',
@@ -43,15 +38,15 @@ const projects: Project[] = [
 ];
 
 const skills: Skill[] = [
-  { name: 'HTML/CSS',   level: 5, color: '#e34c26' },
+  { name: 'HTML/CSS', level: 5, color: '#e34c26' },
   { name: 'JavaScript', level: 4, color: '#f7df1e' },
-  { name: 'React',      level: 4, color: '#61dafb' },
+  { name: 'React', level: 4, color: '#61dafb' },
   { name: 'TypeScript', level: 3, color: '#3178c6' },
-  { name: 'C/C++',      level: 3, color: '#00599C' },
-  { name: 'C#',         level: 3, color: '#9b4f96' },
-  { name: 'Python',     level: 3, color: '#3572A5' },
-  { name: 'Git',        level: 4, color: '#f05032' },
-  { name: 'SQL',        level: 3, color: '#00758f' },
+  { name: 'C/C++', level: 3, color: '#00599C' },
+  { name: 'C#', level: 3, color: '#9b4f96' },
+  { name: 'Python', level: 3, color: '#3572A5' },
+  { name: 'Git', level: 4, color: '#f05032' },
+  { name: 'SQL', level: 3, color: '#00758f' },
 ];
 
 const experiences: Experience[] = [
@@ -63,7 +58,7 @@ const experiences: Experience[] = [
     tags: ['IT Infrastructure', 'Banking', 'Operations'],
   },
   {
-    role: 'Office Assistant',
+    role: 'IT  Assistant',
     company: "Al Hamdy's Accounting Office",
     period: '2023 – Present',
     description: 'Supporting accounting operations and administrative workflows.',
@@ -127,7 +122,7 @@ export default function App() {
         <section id="hero" className="pt-20 pb-28 relative">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="relative space-y-6">
             <div className="flex flex-wrap gap-2">
-              <span className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${dark ? 'bg-blue-900/40 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>🎓 AAST — Software Engineering</span>
+              <span className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${dark ? 'bg-blue-900/40 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>🎓 AAST — Computer Science</span>
               <span className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${dark ? 'bg-amber-900/40 text-amber-300' : 'bg-amber-100 text-amber-700'}`}>🏆 ICPC 2024 — Honorable Mention</span>
             </div>
             <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
@@ -139,7 +134,7 @@ export default function App() {
             <div className="flex flex-wrap gap-3 pt-2">
               <a href="https://github.com/4awmy" target="_blank" rel="noreferrer" className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold transition-colors ${dark ? 'bg-slate-800 text-white hover:bg-slate-700' : 'bg-slate-900 text-white hover:bg-slate-700'}`}><Github className="w-5 h-5" /> GitHub</a>
               <a href="https://www.linkedin.com/in/omar-hossam-4awmy" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-500 transition-colors font-semibold"><Linkedin className="w-5 h-5" /> LinkedIn</a>
-              <a href="mailto:o.metwall06131@student.aast.edu" className={`flex items-center gap-2 px-5 py-3 border rounded-xl font-semibold transition-colors shadow-sm ${dark ? 'bg-slate-800/50 border-slate-700 text-slate-200 hover:bg-slate-800' : 'bg-white border-slate-200 text-slate-800 hover:bg-slate-50'}`}><Mail className="w-5 h-5" /> Email Me</a>
+              <a href="mailto:omarhossammetwally@gmail.com" className={`flex items-center gap-2 px-5 py-3 border rounded-xl font-semibold transition-colors shadow-sm ${dark ? 'bg-slate-800/50 border-slate-700 text-slate-200 hover:bg-slate-800' : 'bg-white border-slate-200 text-slate-800 hover:bg-slate-50'}`}><Mail className="w-5 h-5" /> Email Me</a>
               <button onClick={() => setIsTerminal(true)} className={`flex items-center gap-2 px-5 py-3 border rounded-xl font-semibold font-mono transition-colors ${dark ? 'border-green-700 text-green-400 hover:bg-green-950/30' : 'border-green-500 text-green-700 hover:bg-green-50'}`}>
                 <Terminal className="w-5 h-5" /> &gt;_ TUI Mode
               </button>
@@ -155,7 +150,7 @@ export default function App() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-5">
               <h2 className="text-3xl font-bold flex items-center gap-2"><User className="w-7 h-7 text-blue-500" /> About Me</h2>
-              <p className={`leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>Hey! I'm <strong className={dark ? 'text-slate-200' : ''}>Omar Hossam</strong>, a Software Engineering student at the Arab Academy for Science, Technology &amp; Maritime Transport (AAST), expected to graduate in 2027.</p>
+              <p className={`leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>Hey! I'm <strong className={dark ? 'text-slate-200' : ''}>Omar Hossam</strong>, a Computer Science student at the Arab Academy for Science, Technology &amp; Maritime Transport (AAST), expected to graduate in 2027.</p>
               <p className={`leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>I'm passionate about building intelligent, thoughtful software — from <strong className="text-blue-500">GenAI-powered tools</strong> that bridge LLMs with classical CS theory, to interactive frontends and backend systems. I earned an <strong className="text-blue-500">ICPC 2024 Honorable Mention</strong> representing AAST Cairo and have real-world experience through my IT internship at <strong className={dark ? 'text-slate-200' : ''}>QNB</strong>.</p>
               <p className={`leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>I'm trilingual (Arabic, English, French) and currently <strong className="text-blue-500">open to internships</strong> and freelance opportunities. Let's build something great together.</p>
             </div>
