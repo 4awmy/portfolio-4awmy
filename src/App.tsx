@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Terminal, Code, Send, Layout, User, Zap, ChevronDown, Briefcase, Award, Globe, Moon, Sun } from 'lucide-react';
+import { Github, Linkedin, Mail, Terminal, Send, Layout, User, Zap, ChevronDown, Briefcase, Award, Globe, Moon, Sun } from 'lucide-react';
 import TerminalTUI from './TerminalTUI';
 import ParticleBackground from './ParticleBackground';
 
