@@ -10,11 +10,30 @@ interface Project { name: string; desc: string; tech: string[]; url: string; }
 interface Skill   { name: string; level: number; color: string; }
 
 const PROJECTS: Project[] = [
-  { name: 'CS Theory & GenAI Tool', desc: 'Define languages in plain English via LLMs → Regex, with NFA/DFA conversion & minimization.', tech: ['Python', 'LLMs', 'Automata', 'GenAI'], url: 'https://github.com/4awmy' },
-  { name: 'portfolio-4awmy',        desc: 'Interactive portfolio with TUI terminal mode. Built with React & TypeScript.',        tech: ['React', 'TypeScript', 'Framer Motion'], url: 'https://github.com/4awmy/portfolio-4awmy' },
-  { name: 'Student Mgmt System',    desc: 'Full CRUD app for managing student records, grades, and course enrollment.',           tech: ['C#', '.NET', 'SQL'],                    url: 'https://github.com/4awmy' },
-  { name: 'Task Tracker',           desc: 'Productivity tool for managing daily tasks with priorities and deadlines.',            tech: ['JavaScript', 'HTML', 'CSS'],            url: 'https://github.com/4awmy' },
-  { name: 'University Assignments', desc: 'Coursework, labs, and projects from AAST Software Engineering program.',              tech: ['Various'],                              url: 'https://github.com/4awmy' },
+  {
+    name: 'Portfolio Website',
+    desc: 'Interactive portfolio with TUI mode, built with React & TypeScript.',
+    url: 'https://github.com/4awmy/portfolio-4awmy',
+    tech: ['React', 'TypeScript', 'Vite'],
+  },
+  {
+    name: 'Ben10 Ultimate Alien Multiverse',
+    desc: 'Multiplayer Unity game project showcasing advanced game mechanics.',
+    url: 'https://github.com/4awmy/Ben10-Ultimate-Alien-Multiverse',
+    tech: ['Unity', 'C#'],
+  },
+  {
+    name: 'ML Project',
+    desc: 'AI job market risk analyzer using decision trees and neural networks.',
+    url: 'https://github.com/4awmy/ML-project',
+    tech: ['Python', 'scikit-learn', 'Streamlit'],
+  },
+  {
+    name: 'QA Agent',
+    desc: 'VS Code extension that auto‑generates JUnit tests via LLMs.',
+    url: 'https://github.com/4awmy/QA-agent',
+    tech: ['TypeScript', 'VS Code API'],
+  },
 ];
 
 const SKILLS: Skill[] = [
@@ -77,7 +96,7 @@ function AboutPanel() {
         </div>
         <div className="flex gap-3">
           <span className="text-green-600 w-24 shrink-0">role</span>
-          <span className="text-green-300">Software Engineering Student</span>
+          <span className="text-green-300">Computer Science Student</span>
         </div>
         <div className="flex gap-3">
           <span className="text-green-600 w-24 shrink-0">university</span>
@@ -93,7 +112,7 @@ function AboutPanel() {
         </div>
         <div className="flex gap-3">
           <span className="text-green-600 w-24 shrink-0">experience</span>
-          <span className="text-green-300">IT Intern @ QNB</span>
+          <span className="text-green-300">IT Assistant @ Al Hamdy's | Intern @ QNB</span>
         </div>
         <div className="flex gap-3">
           <span className="text-green-600 w-24 shrink-0">languages</span>
@@ -121,7 +140,7 @@ function AboutPanel() {
 function ExperiencePanel() {
   const experiences = [
     { role: 'IT Intern', company: 'QNB — Qatar National Bank', period: '2025', desc: 'Hands-on experience in IT operations and infrastructure at one of the largest banks in the Middle East.' },
-    { role: 'Office Assistant', company: "Al Hamdy's Accounting Office", period: '2023 – Present', desc: 'Supporting accounting operations and administrative workflows.' },
+    { role: 'IT Assistant', company: "Al Hamdy's Accounting Office", period: '2023 – Present', desc: 'Supporting accounting operations and administrative workflows.' },
   ];
 
   return (
@@ -232,9 +251,9 @@ function ProjectsPanel({ onOpenProject }: { onOpenProject: (p: Project) => void 
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowUp')   setSelected(s => Math.max(0, s - 1));
-      if (e.key === 'ArrowDown') setSelected(s => Math.min(PROJECTS.length - 1, s + 1));
-      if (e.key === 'Enter')     onOpenProject(PROJECTS[selected]);
+      if (e.key === 'ArrowUp')   { e.preventDefault(); setSelected(s => Math.max(0, s - 1)); }
+      if (e.key === 'ArrowDown') { e.preventDefault(); setSelected(s => Math.min(PROJECTS.length - 1, s + 1)); }
+      if (e.key === 'Enter')     { e.preventDefault(); onOpenProject(PROJECTS[selected]); }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
@@ -332,7 +351,7 @@ function ContactPanel() {
   const items = [
     { label: 'github',   value: 'github.com/4awmy',                      href: 'https://github.com/4awmy',                         copy: 'https://github.com/4awmy' },
     { label: 'linkedin', value: 'linkedin.com/in/omar-hossam-4awmy',      href: 'https://www.linkedin.com/in/omar-hossam-4awmy',     copy: 'https://www.linkedin.com/in/omar-hossam-4awmy' },
-    { label: 'email',    value: 'o.metwall06131@student.aast.edu',         href: 'mailto:o.metwall06131@student.aast.edu',            copy: 'o.metwall06131@student.aast.edu' },
+    { label: 'email',    value: 'omarhossammetwally@gmail.com',            href: 'mailto:omarhossammetwally@gmail.com',               copy: 'omarhossammetwally@gmail.com' },
   ];
 
   return (
@@ -498,6 +517,10 @@ export default function TerminalTUI({ onExit }: { onExit: () => void }) {
     const handler = (e: KeyboardEvent) => {
       // Only intercept when not focused on input
       if (document.activeElement === inputRef.current) return;
+
+      // Skip global arrow nav if we are in projects section (let ProjectsPanel handle it)
+      if (section === 'projects' && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) return;
+
       if (e.key === 'ArrowUp') {
         setMenuIndex(i => {
           const n = Math.max(0, i - 1);
@@ -519,7 +542,7 @@ export default function TerminalTUI({ onExit }: { onExit: () => void }) {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, []);
+  }, [section]);
 
   const selectItem = useCallback((item: Section, idx: number) => {
     setSection(item);
@@ -556,7 +579,7 @@ export default function TerminalTUI({ onExit }: { onExit: () => void }) {
     if (cmd === 'date')                     { push(raw, new Date().toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })); return; }
     if (cmd === 'open github')              { window.open('https://github.com/4awmy', '_blank'); push(raw, '→ opening github.com/4awmy 🚀'); return; }
     if (cmd === 'open linkedin')            { window.open('https://www.linkedin.com/in/omar-hossam-4awmy', '_blank'); push(raw, '→ opening LinkedIn 💼'); return; }
-    if (cmd === 'email')                    { navigator.clipboard.writeText('o.metwall06131@student.aast.edu').catch(()=>{}); push(raw, '→ copied to clipboard: o.metwall06131@student.aast.edu'); return; }
+    if (cmd === 'email')                    { navigator.clipboard.writeText('omarhossammetwally@gmail.com').catch(()=>{}); push(raw, '→ copied to clipboard: omarhossammetwally@gmail.com'); return; }
     if (cmd === 'matrix')                   { push(raw, '→ initiating matrix protocol...'); setMatrix(true); return; }
     if (cmd === 'sudo' || cmd === 'sudo su'){ push(raw, 'Permission denied. Nice try 😄'); return; }
     if (cmd === 'sudo rm -rf /')            { push(raw, 'Absolutely not. 💀'); return; }
@@ -701,7 +724,7 @@ export default function TerminalTUI({ onExit }: { onExit: () => void }) {
             type="text"
             value={command}
             onChange={e => setCommand(e.target.value)}
-            onFocus={() => { setSection('cmd'); setMenuIndex(4); }}
+            onFocus={() => { setSection('cmd'); setMenuIndex(6); }}
             className="flex-1 bg-transparent border-none outline-none text-green-300 text-sm caret-green-400 placeholder-green-900"
             placeholder="type a command... (help for list)"
           />
